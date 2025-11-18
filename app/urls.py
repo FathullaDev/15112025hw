@@ -1,5 +1,15 @@
-# from django.urls import path
-#
-# urlpatterns=[
-#     path('')
-# ]
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
+
+from app.views import *
+
+urlpatterns = [
+    path('index/',index),
+    path("category/<int:pk>/",category_index,name="category"),
+    path("suppliers/<int:pk>/",suppliers_index,name="suppliers"),
+
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
