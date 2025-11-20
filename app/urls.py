@@ -4,10 +4,20 @@ from django.urls import path, include
 
 from app.views import *
 
+# urlpatterns = [
+#     path('index/',index),
+#     path("category/<int:pk>/",supplier_views,name="suppliers"),
+#     path("suppliers/<int:pk>/",product_views,name="products"),
+#
+# ]
+
 urlpatterns = [
-    path('index/',index),
-    path("category/<int:pk>/",category_index,name="category"),
-    path("suppliers/<int:pk>/",suppliers_index,name="suppliers"),
+    path('', index, name='index'),  # categorylar ro'yxati
+    path('category/<int:category_id>/suppliers/', suppliers_by_category, name='suppliers_by_category'),
+    path('category/<int:category_id>/supplier/<int:supplier_id>/products/', products_by_supplier_and_category, name='products_by_supplier_and_category'),
+    path('add_news/',add_supplier,name="add_supplier"),
+    path('add_news/',add_category,name="add_category"),
+    path('add_news/',add_product,name="add_product"),
 
 ]
 
