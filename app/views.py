@@ -31,7 +31,8 @@ def add_category(request):
     if request.method=="POST":
         form=CategoryForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            # form.save()
+            category=Categories.objects.create(**form.cleaned_data)
             return redirect('home')
     else:
         form=CategoryForm()
@@ -41,7 +42,8 @@ def add_supplier(request):
     if request.method=="POST":
         form=SupplierForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            # form.save()
+            supplier = Suppliers.objects.create(**form.cleaned_data)
             return redirect('home')
     else:
         form=SupplierForm()
@@ -52,6 +54,7 @@ def add_product(request):
         form=ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            # product=Products.objects.create(**form.cleaned_data)
             return redirect('home')
     else:
         form=ProductForm()

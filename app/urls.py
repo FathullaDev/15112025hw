@@ -12,12 +12,12 @@ from app.views import *
 # ]
 
 urlpatterns = [
-    path('', index, name='index'),  # categorylar ro'yxati
+    path('', index, name='home'),  # categorylar ro'yxati
     path('category/<int:category_id>/suppliers/', suppliers_by_category, name='suppliers_by_category'),
     path('category/<int:category_id>/supplier/<int:supplier_id>/products/', products_by_supplier_and_category, name='products_by_supplier_and_category'),
-    path('add_news/',add_supplier,name="add_supplier"),
-    path('add_news/',add_category,name="add_category"),
-    path('add_news/',add_product,name="add_product"),
+    path('add_supplier/',add_supplier,name="add_supplier"),
+    path('add_category/',add_category,name="add_category"),
+    path('add_product/',add_product,name="add_product"),
 
 ]
 
